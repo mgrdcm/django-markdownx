@@ -41,20 +41,27 @@ matrix:
       env: DJANGO=4.2.*
     - python: 3.10
       env: DJANGO=5.0.*
+    - python: 3.10
+      env: DJANGO=5.1.*
 
     - python: 3.11
       env: DJANGO=4.2.*
     - python: 3.11
       env: DJANGO=5.0.*
+    - python: 3.11
+      env: DJANGO=5.1.*
 
     - python: 3.12
       env: DJANGO=4.2.*
     - python: 3.12
       env: DJANGO=5.0.*
+    - python: 3.12
+      env: DJANGO=5.1.*
 
 install:
   - python dev.py -no-container
   - pip install -q Django==$DJANGO
+  - pip install -U setuptools
   - python setup.py install
 
 script: python runtests.py
